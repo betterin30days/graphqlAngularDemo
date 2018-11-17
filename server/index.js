@@ -17,6 +17,7 @@ const typeDefs = gql`
     id: ID
     company: String
     phone: String
+    salesRep: Employee
   }
 
   type Query {

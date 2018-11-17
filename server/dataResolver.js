@@ -1,3 +1,5 @@
+'use strict';
+
 const data = require('./mockData');
 
 module.exports = class DataResolver {
@@ -8,6 +10,10 @@ module.exports = class DataResolver {
 
   mapClients(clientIds) {
     return clientIds.map(id => this.clients[id]);
+  }
+
+  mapEmployee(employeeId) {
+    return this.employees[employeeId];
   }
 
   resolveEmployees() {
@@ -25,7 +31,9 @@ module.exports = class DataResolver {
     const result = [];
     for (let key in this.clients) {
       if (!this.clients.hasOwnProperty(key)) break;
-      result.push(this.clients[key]);
+      const client = JSON.parse(JSON.stringify(this.clients[key]))
+      client.salesRep = this.mapEmployee(client.salesRep);
+      result.push(client);
     }
     return result;
   }
