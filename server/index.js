@@ -7,17 +7,17 @@ const data = new DataResolver();
 
 const typeDefs = gql`
   type Employee {
-    id: ID
-    firstName: String
-    lastName: String
+    id: ID!
+    firstName: String!
+    lastName: String!
     clients: [Client]
   }
 
   type Client {
-    id: ID
-    company: String
-    phone: String
-    salesRep: Employee
+    id: ID!
+    company: String!
+    phone: String!
+    salesRep: Employee!
   }
 
   type Query {
@@ -26,7 +26,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addClient(company: String, phone: String, salesRep: String): Client
+    addClient(company: String!, phone: String!, salesRep: String!): Client
   }
 `;
 

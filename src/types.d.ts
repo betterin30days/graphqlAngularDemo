@@ -21,23 +21,23 @@ export interface Query {
 }
 
 export interface Employee {
-  id?: string | null;
+  id: string;
 
-  firstName?: string | null;
+  firstName: string;
 
-  lastName?: string | null;
+  lastName: string;
 
   clients?: (Client | null)[] | null;
 }
 
 export interface Client {
-  id?: string | null;
+  id: string;
 
-  company?: string | null;
+  company: string;
 
-  phone?: string | null;
+  phone: string;
 
-  salesRep?: Employee | null;
+  salesRep: Employee;
 }
 
 export interface Mutation {
@@ -49,9 +49,9 @@ export interface Mutation {
 // ====================================================
 
 export interface AddClientMutationArgs {
-  company?: string | null;
+  company: string;
 
-  phone?: string | null;
+  phone: string;
 
-  salesRep?: string | null;
+  salesRep: string;
 }

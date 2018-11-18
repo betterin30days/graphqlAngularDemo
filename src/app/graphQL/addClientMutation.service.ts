@@ -9,9 +9,9 @@ import { Client } from 'src/types';
 export class AddClientMutation extends Mutation<{client: Client}> {
   document = gql`
     mutation addClient (
-      $company: String
-      $phone: String
-      $salesRep: String
+      $company: String!
+      $phone: String!
+      $salesRep: String!
     ) {
       addClient(company: $company, phone: $phone, salesRep: $salesRep) {
         id
