@@ -24,6 +24,10 @@ const typeDefs = gql`
     employees: [Employee]
     clients: [Client]
   }
+
+  type Mutation {
+    addClient(company: String, phone: String, salesRep: String): Client
+  }
 `;
 
 const resolvers = {
@@ -31,6 +35,9 @@ const resolvers = {
     employees: () => data.resolveEmployees(),
     clients: () => data.resolveClients()
   },
+  Mutation: {
+    addClient: (parent, args) => data.addClient(args.company, args.phone, args.salesRep)
+  }
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });
