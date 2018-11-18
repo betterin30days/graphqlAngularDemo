@@ -3,7 +3,7 @@ This is a simple Office client tracker intended as an introduction to using [Gra
 
 ## Demo
 ```
-$ git clone
+$ git clone https://github.com/betterin30days/graphqlAngularDemo.git
 $ npm install
 $ npm run serve
 $ npm start
