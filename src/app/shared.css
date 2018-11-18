@@ -2,6 +2,13 @@
   display: flex;
 }
 
+.content-header {
+  display: flex;
+  background: #96858F;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .content-row > p {
   flex: 1;
   padding-left: 10px;
@@ -9,9 +16,9 @@
 }
 
 .content-row:nth-child(even) {
-  background: lightgray;
+  background: #6D7993;
 }
 
 .content-row:nth-child(odd) {
-  background: darkgray;
+  background: #9099A2;
 }
