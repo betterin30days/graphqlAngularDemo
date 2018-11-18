@@ -1,0 +1,6 @@
+<h1>add new client</h1>
+<form [formGroup]="newClientForm" (ngSubmit)="onSubmit()">
+  <input formControlName="company" placeholder="company">
+  <input formControlName="phone" placeholder="phone">
+  <button type="submit" [disabled]="!newClientForm.valid">Submit</button>
+</form>

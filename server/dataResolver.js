@@ -6,8 +6,8 @@ module.exports = class DataResolver {
   constructor() {
     this.employees = data.employees;
     this.clients = data.clients;
-    this.employeeIdCounter = 3;
-    this.clientIdCounter = 7;
+    this.employeeIdCounter = 4;
+    this.clientIdCounter = 8;
   }
 
   mapClients(clientIds) {
