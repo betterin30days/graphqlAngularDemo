@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ClientsComponent } from './clients/clients.component';
 import { EmployeesComponent } from './employees/employees.component';
-import { GraphQLModule } from './graphql.module';
+import { GraphQLModule } from './graphQL/graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
