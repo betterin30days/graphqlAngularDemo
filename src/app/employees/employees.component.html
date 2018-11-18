@@ -1,8 +1,8 @@
 <h1>employees</h1>
 <div *ngIf="employees">
-  <div *ngFor="let employee of employees">
-    <p>{{employee.firstName}} {{employee.lastName}}</p>
-    <div *ngFor="let client of employee.clients">
+  <div *ngFor="let employee of employees" class="content-row" >
+    <p class="employee-name">{{employee.firstName}} {{employee.lastName}}</p>
+    <div *ngFor="let client of employee.clients" class="client-row">
       <p>{{client.company}}</p>
     </div>
   </div>

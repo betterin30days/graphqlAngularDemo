@@ -5,6 +5,7 @@ import { Client } from 'src/types';
 
 @Component({
   selector: 'app-clients-component',
+  styleUrls: ['../shared.css', './clients.component.css'],
   templateUrl: './clients.component.html'
 })
 export class ClientsComponent implements OnInit {

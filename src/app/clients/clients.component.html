@@ -1,6 +1,11 @@
 <h1>clients</h1>
 <div *ngIf="clients">
-  <div *ngFor="let client of clients">
+  <div class="content-row client-header">
+    <p>client</p>
+    <p>phone number</p>
+    <p>sales rep</p>
+  </div>
+  <div *ngFor="let client of clients" class="content-row">
     <p>{{client.company}}</p>
     <p>{{client.phone}}</p>
     <p>{{client.salesRep.firstName}} {{client.salesRep.lastName}}</p>

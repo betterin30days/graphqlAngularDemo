@@ -1,0 +1,15 @@
+.content-row {
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+}
+
+.employee-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.client-row {
+  flex: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+}

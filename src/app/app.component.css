@@ -1,0 +1,9 @@
+.columns-container {
+  display: flex;
+  justify-content: center;
+}
+
+.columns-container > .content-component {
+  margin-left: 10px;
+  margin-right: 10px;
+}

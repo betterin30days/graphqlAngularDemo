@@ -31,49 +31,49 @@ exports.clients = {
   'c0': {
     id: 'c0',
     company: 'Lackawanna County',
-    phone: '555-1111',
+    phone: '212-555-1111',
     salesRep: 'e0'
   },
   'c1': {
     id: 'c1',
     company: 'Dunmore High School',
-    phone: '555-2222',
+    phone: '212-555-2222',
     salesRep: 'e0'
   },
   'c2': {
     id: 'c2',
     company: 'Stone, Cooper, and Grandy: Attorneys at Law',
-    phone: '555-3333',
+    phone: '212-555-3333',
     salesRep: 'e1'
   },
   'c3': {
     id: 'c3',
     company: 'Harper Collins',
-    phone: '555-4444',
+    phone: '212-555-4444',
     salesRep: 'e1'
   },
   'c4': {
     id: 'c4',
     company: 'East Pennyslvania Seminary',
-    phone: '555-5555',
+    phone: '212-555-5555',
     salesRep: 'e2'
   },
   'c5': {
     id: 'c5',
     company: 'Haymont Tires',
-    phone: '555-6666',
+    phone: '212-555-6666',
     salesRep: 'e2'
   },
   'c6': {
     id: 'c6',
     company: 'Down! The Pet Emporium',
-    phone: '555-7777',
+    phone: '212-555-7777',
     salesRep: 'e3'
   },
   'c7': {
     id: 'c7',
     company: 'Tract Industries',
-    phone: '555-8888',
+    phone: '212-555-8888',
     salesRep: 'e3'
   },
 };
