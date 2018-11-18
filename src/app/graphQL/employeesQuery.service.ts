@@ -10,6 +10,7 @@ export class EmployeesQuery extends Query<{employees: Employee[]}> {
   document = gql`
     query {
       employees {
+        id
         firstName
         lastName
         clients {

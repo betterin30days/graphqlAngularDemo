@@ -18,6 +18,7 @@ export class AddClientMutation extends Mutation<{client: Client}> {
         company
         phone
         salesRep {
+          id
           firstName
           lastName
         }
