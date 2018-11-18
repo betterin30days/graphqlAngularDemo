@@ -40,7 +40,7 @@ const resolvers = {
   }
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers, cors: true });
 server.listen().then(({ url }) => {
   console.log(`Listening at ${url}`);
 });
