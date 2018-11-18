@@ -2,5 +2,9 @@
 <form [formGroup]="newClientForm" (ngSubmit)="onSubmit()">
   <input formControlName="company" placeholder="company">
   <input formControlName="phone" placeholder="phone">
+  <select formControlName="salesRep">
+    <option value="" selected disabled hidden>Sales Rep</option>
+    <option *ngFor="let employee of employees" value="{{employee.id}}">{{employee.firstName}}</option>
+  </select>
   <button type="submit" [disabled]="!newClientForm.valid">Submit</button>
 </form>

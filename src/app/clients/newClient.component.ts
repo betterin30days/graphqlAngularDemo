@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AddClientMutation } from '../graphQL/addClientMutation.service';
@@ -11,7 +11,8 @@ import { EmployeesQuery } from '../graphQL/employeesQuery.service';
   styleUrls: ['../shared.css', './newClient.component.css'],
   templateUrl: './newClient.component.html'
 })
-export class NewClientComponent {
+export class NewClientComponent implements OnInit {
+  public employees: Employee[];
   public newClientForm: FormGroup;
 
   constructor(
@@ -23,17 +24,25 @@ export class NewClientComponent {
     this.createForm();
   }
 
+  ngOnInit() {
+    this.employeesQuery.watch().valueChanges.subscribe(result => {
+      this.employees = result.data.employees;
+    });
+  }
+
   public onSubmit(): void {
     const company = this.newClientForm.get('company').value;
     const phone = this.newClientForm.get('phone').value;
-    const salesRep = 'e0';
+    const salesRep = this.newClientForm.get('salesRep').value;
     this.addClient(company, phone, salesRep);
+    this.newClientForm.reset();
   }
 
   private createForm(): void {
     this.newClientForm = this.fb.group({
       company: ['', Validators.required],
-      phone: ['', Validators.required]
+      phone: ['', Validators.required],
+      salesRep: ['', Validators.required]
     });
   }
 
