@@ -4,8 +4,11 @@ This is a simple Office client tracker intended as an introduction to using [Gra
 ## Demo
 ```
 $ git clone https://github.com/betterin30days/graphqlAngularDemo.git
+$ cd graphqlAngularDemo
 $ npm install
 $ npm run serve
+// open another terminal
+$ cd graphqlAngularDemo
 $ npm start
 ```
 Open your browser to [localhost:4200](http://localhost:4200) for the application or [localhost:4000](http://localhost:4000) for the GraphQL Playground.
@@ -22,6 +25,51 @@ The Angular client uses [Apollo Angular Client](https://www.apollographql.com/do
 Queries and Mutations are best documented within the GraphQL playground using the schema exporer. There are two queries and one mutation to show how the local data store handles caching. When using the app, keep an eye on the network tab in dev tools. For example, two components query for the employees initally, but you will only see one employee network request because the second query, and any subsequent query for employees, are served from the local cache.
 
 The local cache is also realized when an `addClient` mutation is made. This mutation updates both the clients' and employees' data which leads those two components to query for the new changes. Again, check the network tab when making an `addClient` mutation because those following queries are also served from the local cache due to mutations caching the responses. You'll see the mutation network request, but not the clients or employees, even though those will initiate queries and update the display in real time.
+
+## GraphQL Playground
+Below are some sample queries and mutations to try in the playground. Use the schema explorer and autocomplete to try other combinations.
+### Query: employees
+```
+{
+  employees {
+    firstName
+    lastName
+    clients {
+      company
+      phone
+    }
+  }
+}
+```
+### Query: clients
+```
+{
+  clients {
+    company
+    phone
+    salesRep {
+      firstName
+    }
+  }
+}
+```
+### Mutation: addClient
+```
+mutation {
+  addClient(
+    company: "Angular NYC",
+    phone: "212-555-1212",
+    salesRep: "e0"
+  ) {
+    id
+    company
+    phone
+    salesRep {
+      firstName
+    }
+  }
+}
+```
 
 ## Code generation
 [GraphQL Code Generator](https://graphql-code-generator.com/) is a great tool that will read your server side schema, and generate typescript types and Angular services to interact with your schema. This allows you to write server side schemas, client side queries/mutations, and have the rest generated for you. It is especially useful when you make any schema changes and want to update your client.
