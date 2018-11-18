@@ -14,6 +14,7 @@ export class ClientsQuery extends Query<{clients: Client[]}> {
         phone
         salesRep {
           firstName
+          lastName
         }
       }
     }

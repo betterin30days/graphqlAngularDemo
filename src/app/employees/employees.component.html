@@ -1,0 +1,9 @@
+<h1>employees</h1>
+<div *ngIf="employees">
+  <div *ngFor="let employee of employees">
+    <p>{{employee.firstName}} {{employee.lastName}}</p>
+    <div *ngFor="let client of employee.clients">
+      <p>{{client.company}}</p>
+    </div>
+  </div>
+</div>
