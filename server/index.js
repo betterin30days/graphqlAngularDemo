@@ -20,23 +20,41 @@ const typeDefs = gql`
     salesRep: Employee!
   }
 
+  type User {
+    id: ID!
+    name: String!
+  }
+
+  type Doc {
+    id: ID!
+    name: String!
+  }
+
   type Query {
     employees: [Employee]
     clients: [Client]
+    users: [User]
+    docs: [Doc]
   }
 
   type Mutation {
     addClient(company: String!, phone: String!, salesRep: String!): Client
+    updateClient(clientId: String!, salesRepId: String!): Client
+    updateDoc(id: String!, name: String!): Doc
   }
 `;
 
 const resolvers = {
   Query: {
     employees: () => data.resolveEmployees(),
-    clients: () => data.resolveClients()
+    clients: () => data.resolveClients(),
+    users: () => data.resolveUsers(),
+    docs: () => data.resolveDocs()
   },
   Mutation: {
-    addClient: (parent, args) => data.addClient(args.company, args.phone, args.salesRep)
+    addClient: (parent, args) => data.addClient(args.company, args.phone, args.salesRep),
+    updateClient: (parent, args) => data.updateClient(args.clientId, args.salesRepId),
+    updateDoc: (parent, args) => data.updateDoc(args.id, args.name)
   }
 };
 

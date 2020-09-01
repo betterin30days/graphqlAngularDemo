@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Query } from 'apollo-angular';
+import { Mutation } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { Client } from 'src/types';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientsQuery extends Query<{clients: Client[]}> {
+export class UpdateClientMutation extends Mutation<{client: Client}> {
   document = gql`
-    query {
-      clients {
+    mutation updateClient (
+      $clientId: String!
+      $salesRepId: String!
+    ) {
+      updateClient(clientId: $clientId, salesRepId: $salesRepId) {
         id
         company
         phone
         salesRep {
+          id
           firstName
           lastName
         }

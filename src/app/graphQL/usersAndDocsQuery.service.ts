@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Query } from 'apollo-angular';
 import gql from 'graphql-tag';
-import { Client } from 'src/types';
+import { Doc, User } from 'src/types';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientsQuery extends Query<{clients: Client[]}> {
+export class UsersAndDocsQuery extends Query<{users: User[], docs: Doc[]}> {
   document = gql`
     query {
-      clients {
+      users {
         id
-        company
-        phone
-        salesRep {
-          firstName
-          lastName
-        }
+        name
+      }
+      docs {
+        id
+        name
       }
     }
   `;

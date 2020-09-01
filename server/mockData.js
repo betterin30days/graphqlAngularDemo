@@ -77,3 +77,13 @@ exports.clients = {
     salesRep: 'e3'
   },
 };
+
+exports.users = {
+  'a': {id: 'a', name: 'lee'},
+  'b': {id: 'b', name: 'nora'}
+};
+
+exports.docs = {
+  'a': {id: 'a', name: 'docA'},
+  'b': {id: 'b', name: 'docB'}
+};

@@ -8,6 +8,9 @@ module.exports = class DataResolver {
     this.clients = data.clients;
     this.employeeIdCounter = 4;
     this.clientIdCounter = 8;
+    
+    this.users = data.users;
+    this.docs = data.docs;
   }
 
   mapClients(clientIds) {
@@ -44,6 +47,10 @@ module.exports = class DataResolver {
     this.employees[employeeId].clients.push(clientId);
   }
 
+  removeClientFromEmployee(employeeId, clientId) {
+    this.employees[employeeId].clients.filter(client => client !== clientId);
+  }
+
   addClient(company, phone, salesRep) {
     const id = `c${this.clientIdCounter++}`;
     const client = {
@@ -57,5 +64,39 @@ module.exports = class DataResolver {
     const newClient = JSON.parse(JSON.stringify(client));
     newClient.salesRep = this.mapEmployee(newClient.salesRep);
     return newClient;
+  }
+
+  updateClient(clientId, salesRepId) {
+    const previousEmployeeId = this.clients[clientId].salesRep;
+    this.attachClientToEmployee(salesRepId, clientId);
+    this.removeClientFromEmployee(previousEmployeeId, clientId);
+    this.clients[clientId].salesRep = salesRepId;
+    const updatedClient = JSON.parse(JSON.stringify(this.clients[clientId]));
+    updatedClient.salesRep = this.mapEmployee(salesRepId);
+    return updatedClient;
+  }
+
+  resolveUsers() {
+    const result = [];
+    for (let key in this.users) {
+      const user = JSON.parse(JSON.stringify(this.users[key]));
+      result.push(user);
+    };
+    return result;
+  }
+
+  resolveDocs() {
+    const result = [];
+    for (let key in this.docs) {
+      const doc = JSON.parse(JSON.stringify(this.docs[key]));
+      result.push(doc);
+    };
+    return result;
+  }
+
+  updateDoc(id, name) {
+    this.docs[id].name = name;
+    const updatedDoc = JSON.parse(JSON.stringify(this.docs[id]));
+    return updatedDoc;
   }
 }

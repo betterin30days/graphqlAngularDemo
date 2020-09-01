@@ -18,6 +18,10 @@ export interface Query {
   employees?: (Employee | null)[] | null;
 
   clients?: (Client | null)[] | null;
+
+  users?: (User | null)[] | null;
+
+  docs?: (Doc | null)[] | null;
 }
 
 export interface Employee {
@@ -40,8 +44,22 @@ export interface Client {
   salesRep: Employee;
 }
 
+export interface User {
+  id: string;
+
+  name: string;
+}
+
+export interface Doc {
+  id: string;
+
+  name: string;
+}
+
 export interface Mutation {
   addClient?: Client | null;
+
+  updateClient?: Client | null;
 }
 
 // ====================================================
@@ -54,4 +72,9 @@ export interface AddClientMutationArgs {
   phone: string;
 
   salesRep: string;
+}
+export interface UpdateClientMutationArgs {
+  clientId: string;
+
+  salesRepId: string;
 }

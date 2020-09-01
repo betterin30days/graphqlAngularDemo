@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ClientsComponent } from './clients/clients.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { NewClientComponent } from './clients/newClient.component';
+import { UpdateClientComponent } from './clients/updateClient.component';
+import { UsersComponent } from './users/users.component';
 import { GraphQLModule } from './graphQL/graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,7 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     ClientsComponent,
     EmployeesComponent,
-    NewClientComponent
+    NewClientComponent,
+    UpdateClientComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

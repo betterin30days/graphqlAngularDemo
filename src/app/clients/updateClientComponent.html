@@ -1,0 +1,14 @@
+<div class="content-header">
+  <h1>update client</h1>
+</div>
+<form [formGroup]="updateClientForm" (ngSubmit)="onSubmit()">
+  <select formControlName="client">
+    <option value="" selected disabled hidden>Client</option>
+    <option *ngFor="let client of clients" value="{{client.id}}">{{client.company}}</option>
+  </select>
+  <select formControlName="salesRep">
+    <option value="" selected disabled hidden>Sales Rep</option>
+    <option *ngFor="let employee of employees" value="{{employee.id}}">{{employee.firstName}}</option>
+  </select>
+  <button type="submit" [disabled]="!updateClientForm.valid">Submit</button>
+</form>
